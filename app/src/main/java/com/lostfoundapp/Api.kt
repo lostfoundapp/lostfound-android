@@ -24,4 +24,18 @@ interface Api {
         @Field("confirmPassword") confirmPassword:String,
         @Field("phone") phone:String
     ):Call<DefaultResponse>
+
+    @FormUrlEncoded
+    @POST("login")
+    fun userLogin(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ):Call<LoginResponse>
+
+    @FormUrlEncoded
+    @POST("forgotPassword")
+    fun PostForgot(
+        @Field("email") email:String
+    ):Call<DefaultResponse>
+
 }
