@@ -59,8 +59,11 @@ class LoginActivity : AppCompatActivity() {
                     }
 
                     override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                        if (!response.body()?.message.equals("Logado")){
+                            Log.d("erros", "Erro ao fazer login")
 
-                        if (!response.body()?.message.equals("")){
+                        }else{
+
                             Log.d("erros", response.body()?.users.toString())
                             SharedPrefManager.getInstance(applicationContext).saveUser(response.body()?.users!!)
 
@@ -68,9 +71,6 @@ class LoginActivity : AppCompatActivity() {
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
                             finish()
-
-                        }else{
-                            Log.d("erros", response.body()?.message)
                         }
 
                     }

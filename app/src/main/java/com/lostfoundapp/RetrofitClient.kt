@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitClient{
 
     private val AUTH = "Bearer "
-    private  const val BASE_URL = "https://us-central1-lostandfoundapps.cloudfunctions.net/api/"
+    public  const val BASE_URL = "https://us-central1-lostandfoundapps.cloudfunctions.net/api/"
 
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor { chain ->
