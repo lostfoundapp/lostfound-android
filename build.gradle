@@ -5,6 +5,7 @@ buildscript {
     ext.supportVersion = '1.0.0'
     ext.supportLifecycle = '1.1.1'
     ext.versionRetrofit = '2.6.0'
+    ext.versionGlide = '4.10.0'
     repositories {
         google()
         jcenter()

@@ -21,18 +21,26 @@ class PostsViewModel : ViewModel() {
     fun getPost(){
 
         val res = ApiService.service.getPosts(STATUS)
-        Log.d("POST" ,res.toString())
+
             res.enqueue(object: Callback<PostBodyResponse>{
 
                 override fun onResponse(call: Call<PostBodyResponse>, response: Response<PostBodyResponse>) {
                    if (response.isSuccessful){
+                       Log.d("POST" ,response.body().toString())
                        val posts: MutableList<Post> = mutableListOf()
                        response.body()?.let { postBodyResponse ->
                            for (result in postBodyResponse.posts){
                                val post = Post(
+                                   post_id = result.post_id,
                                    image = result.image,
-                                   description = result.description,
-                                   datetime = result.datetime
+                                   description = result.description.toUpperCase(),
+                                   datetime = result.datetime,
+                                   name = result.name,
+                                   localDeEntrega = result.police.name + " "
+                                                    + result.police.address+ " "
+                                                    + result.police.city+ " "
+                                                    + result.police.district
+
                                )
                                posts.add(post)
                            }
