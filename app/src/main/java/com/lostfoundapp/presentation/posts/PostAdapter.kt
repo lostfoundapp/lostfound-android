@@ -11,20 +11,11 @@ import kotlinx.android.synthetic.main.item_post.view.*
 import android.net.Uri
 import android.graphics.Bitmap
 import com.lostfoundapp.R
-import android.graphics.Canvas
-import android.graphics.Color
-import android.os.Environment
-import android.util.Log
-import android.widget.Toast
-import java.io.*
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
-import java.text.SimpleDateFormat
-import java.util.*
 import android.os.StrictMode
-
-
-
+import com.lostfoundapp.storage.SharingImage.Companion.getOutputMediaFile
+import com.lostfoundapp.storage.SharingImage.Companion.storeImage
 
 
 class PostAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostAdapter.PostsViewHolder>(){
@@ -40,7 +31,7 @@ class PostAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostAdap
         viewHolder.bindView(posts[position])
     }
 
-    class PostsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class PostsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         //id do xml item
         private val nameUser = itemView.nameUser
         private val description = itemView.description
@@ -49,18 +40,19 @@ class PostAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostAdap
         private val imgPost = itemView.imgPost
         private val share = itemView.share
 
-        fun bindView(post: Post){
+        fun bindView(post: Post) {
             nameUser.text = post.name
             description.text = post.description
             datetime.text = post.datetime
             addressPolice.text = post.localDeEntrega
+            itemView.cv.setBackgroundResource(R.drawable.recycler_background)
 
             Glide
-                .with(itemView.context)
-                .load(post.image)
-                .centerCrop()
-                .placeholder(R.drawable.load)
-                .into(imgPost)
+                    .with(itemView.context)
+                    .load(post.image)
+                    .centerCrop()
+                    .placeholder(R.drawable.load)
+                    .into(imgPost)
 
             share.setOnClickListener {
 
@@ -69,60 +61,20 @@ class PostAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostAdap
                     .load(post.image)
                     .into(object : SimpleTarget<Bitmap>() {
                         override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                            storeImage(resource)
-                            val file = getOutputMediaFile()!!
+                            storeImage(resource, itemView.context)
+                            val file = getOutputMediaFile(itemView.context)!!
                             val builder = StrictMode.VmPolicy.Builder()
                             StrictMode.setVmPolicy(builder.build())
                             val intent = Intent(Intent.ACTION_SEND)
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                            intent.putExtra(Intent.EXTRA_TEXT, "("+post.description+")"+
-                                                "\n\n"+post.localDeEntrega+"\nvia: LostFound App");
+                            intent.putExtra(Intent.EXTRA_TEXT, "*(" + post.description + ")*" +
+                                    "\n\n" + post.localDeEntrega + "\nvia: LostFound App");
                             intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file))
                             intent.type = "image/*"
                             itemView.context.startActivity(Intent.createChooser(intent, "Share with..."))
                         }
                     })
             }
-        }
-        private fun storeImage(image: Bitmap) {
-            val pictureFile = getOutputMediaFile()
-            if (pictureFile == null) {
-                Log.d(
-                    "caminho",
-                    "Error creating media file, check storage permissions: "
-                )
-                return
-            }
-            try {
-                val fos = FileOutputStream(pictureFile)
-                image.compress(Bitmap.CompressFormat.PNG, 90, fos)
-                fos.close()
-            } catch (e: FileNotFoundException) {
-                Log.d("caminho", "File not found: " + e.message)
-            } catch (e: IOException) {
-                Log.d("caminho", "Error accessing file: " + e.message)
-            }
-
-        }
-        private fun getOutputMediaFile():File? {
-            val mediaStorageDir = File(
-                (Environment.getExternalStorageDirectory()).toString()
-                        + "/Android/data/"
-                        + itemView.context.getPackageName()
-                        + "/Files"
-            )
-            if (!mediaStorageDir.exists())
-            {
-                if (!mediaStorageDir.mkdirs())
-                {
-                    return null
-                }
-            }
-            val timeStamp = SimpleDateFormat("ddMMyyyy_HHmm").format(Date())
-            val mediaFile:File
-            val mImageName = "MI_$timeStamp.jpg"
-            mediaFile = File(mediaStorageDir.getPath() + File.separator + mImageName)
-            return mediaFile
         }
     }
 }

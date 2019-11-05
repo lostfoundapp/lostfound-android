@@ -3,7 +3,7 @@
 
     <item android:state_pressed="true">
         <shape android:shape="oval">
-            <solid android:color="@color/colorPrimary"/>
+            <solid android:color="@color/colorBlueT"/>
             <stroke android:color="@color/colorWhite"
                     android:width="5dp"/>
         </shape>
@@ -11,9 +11,9 @@
 
     <item>
         <shape android:shape="oval">
-            <solid android:color="@color/colorAccent"/>
+            <solid android:color="@color/colorBlue"/>
             <stroke android:color="@color/colorWhite"
-                    android:width="5dp"/>
+                    android:width="3dp"/>
         </shape>
     </item>
 </selector>

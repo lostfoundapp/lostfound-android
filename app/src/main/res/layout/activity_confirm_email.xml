@@ -12,7 +12,6 @@
         android:id="@+id/bgHeader"
         android:layout_width="match_parent"
         android:layout_height="220dp"
-        android:background="@drawable/header_login"
         android:elevation="5dp" />
 
     <ImageView
@@ -41,6 +40,7 @@
         android:id="@+id/circle1"
         android:layout_width="134dp"
         android:layout_height="134dp"
+        android:visibility="gone"
         android:layout_below="@+id/bgHeader"
         android:layout_alignParentRight="true"
         android:layout_marginTop="-80dp"
@@ -50,6 +50,7 @@
     <ImageView
         android:id="@+id/circle2"
         android:layout_width="134dp"
+        android:visibility="gone"
         android:layout_height="134dp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="-100dp"
@@ -60,6 +61,7 @@
         android:id="@+id/circle3"
         android:layout_width="182dp"
         android:layout_height="182dp"
+        android:visibility="gone"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginRight="-80dp"
@@ -69,6 +71,7 @@
     <ImageView
         android:id="@+id/circle4"
         android:layout_width="134dp"
+        android:visibility="gone"
         android:layout_height="134dp"
         android:layout_alignParentBottom="true"
         android:layout_marginRight="-50dp"
@@ -107,9 +110,9 @@
                         android:layout_margin="10dp"
                         android:text="Código de verificação"
                         android:textAlignment="center"
-                        android:textColor="@color/colorPurple"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/colorWhite"  />
 
                     <EditText
                         android:id="@+id/edtConfirmEmail"
@@ -137,6 +140,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_ui"
+                    android:layout_marginTop="5dp"
                     android:text="Confirmar"
                     android:textAllCaps="false"
                     android:textColor="@color/colorWhite" />

@@ -20,15 +20,17 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:gravity="center_horizontal">
+
             <TextView
                 android:id="@+id/welcome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
+                android:text="Olá, "
                 android:textColor="@color/colorWhite"
                 android:textSize="18dp"
-                android:textStyle="bold"
-                android:text="Olá, "/>
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/UserApp"
                 android:layout_width="wrap_content"
@@ -40,15 +42,16 @@
                 android:textSize="18dp"
                 android:textStyle="bold"
                 tools:text="User" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/UserApp"
+                android:fontFamily="sans-serif-light"
+                android:text="  =)"
                 android:textColor="@color/colorWhite"
                 android:textSize="18dp"
-                android:fontFamily="sans-serif-light"
-                android:textStyle="bold"
-                android:text="  =)" />
+                android:textStyle="bold" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
@@ -94,15 +97,57 @@
         android:src="@drawable/circletransparant"
         android:visibility="gone" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerPost"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <ViewFlipper
+        android:id="@+id/viewFlipper"
         android:layout_below="@id/bgHeader"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginBottom="2dp"
-        tools:listitem="@layout/item_post" />
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerPost"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_post" />
+
+        <TextView
+            android:id="@+id/error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/colorWhite"
+            tools:text="Error 401"/>
+
+    </ViewFlipper>
+
+    <FrameLayout
+        android:background="@color/colorWhite"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <ImageButton
+        android:id="@+id/footer"
+        android:layout_alignParentBottom="true"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:paddingBottom="12dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-20dp"
+        android:background="@drawable/bt_ui"
+        android:src="@drawable/ic_exit" />
 
 </RelativeLayout>

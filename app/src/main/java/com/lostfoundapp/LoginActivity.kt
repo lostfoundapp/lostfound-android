@@ -8,6 +8,7 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
+import com.lostfoundapp.presentation.posts.PostActivity
 import com.lostfoundapp.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
@@ -25,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
         animation = AnimationUtils.loadAnimation(this,R.anim.uptodowndiagonal)
         rlayout.setAnimation(animation)
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
-
+        cv.setBackgroundResource(R.drawable.card_background)
         tvForgot.setOnClickListener {
             val intent = Intent(this@LoginActivity, ResetPasswordActivity::class.java)
             startActivity(intent)
@@ -67,7 +68,7 @@ class LoginActivity : AppCompatActivity() {
                             Log.d("erros", response.body()?.users.toString())
                             SharedPrefManager.getInstance(applicationContext).saveUser(response.body()?.users!!)
 
-                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            val intent = Intent(this@LoginActivity, PostActivity::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
                             finish()

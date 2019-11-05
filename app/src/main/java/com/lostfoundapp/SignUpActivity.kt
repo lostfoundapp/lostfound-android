@@ -25,7 +25,7 @@ class SignUpActivity : AppCompatActivity() {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         animation = AnimationUtils.loadAnimation(this,R.anim.uptodowndiagonal)
         rlayout.setAnimation(animation)
-
+        cv.setBackgroundResource(R.drawable.card_background)
         btnSignup.setOnClickListener {
             val email = edtEmailSignup.text.toString().trim()
             val name = edtNameSignup.text.toString().trim()

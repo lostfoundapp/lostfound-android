@@ -21,7 +21,7 @@ class ConfirmEmailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirm_email)
-
+        cv.setBackgroundResource(R.drawable.card_background)
         var email: String? = intent.getStringExtra("email")
         var password: String? = intent.getStringExtra("password")
         var confirmPassword: String? = intent.getStringExtra("confirmPassword")

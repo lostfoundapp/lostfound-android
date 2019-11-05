@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="5dp"
+    android:id="@+id/cv"
     android:background="@color/colorWhite"
     app:cardCornerRadius="5dp"
     app:cardElevation="1dp">
@@ -22,10 +23,10 @@
             android:background="#57000000"
             android:elevation="10dp"
             android:padding="5dp"
-            android:visibility="gone"
-            android:textColor="#fff"
+            android:textColor="@color/colorWhite"
             android:textSize="10dp"
             android:textStyle="bold"
+            android:visibility="gone"
             tools:text="Datetime" />
 
         <ImageView
@@ -41,12 +42,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imgPost"
-            android:textColor="@android:color/background_dark"
-            android:fontFamily="sans-serif-light"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="2dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="2dp"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/colorWhite"
             tools:text="Description" />
 
         <TextView
@@ -54,12 +55,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/description"
-            android:layout_marginLeft="10dp"
-            android:textSize="10dp"
-            android:layout_marginBottom="1dp"
             android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="1dp"
+            android:textColor="@color/colorWhite"
             android:text="Local de entrega: "
-            />
+            android:textSize="10dp" />
+
         <TextView
             android:id="@+id/addressPolice"
             android:layout_width="match_parent"
@@ -68,8 +70,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="2dp"
-            android:textColor="@android:color/background_dark"
             android:fontFamily="sans-serif-light"
+            android:textColor="@color/colorWhite"
             tools:text="AddressPolice" />
 
         <TextView
@@ -77,11 +79,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/addressPolice"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="1dp"
             android:layout_alignParentStart="true"
-            android:text="Encontrado por: "
-             />
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/colorWhite"
+            android:layout_marginBottom="1dp"
+            android:text="Encontrado por: " />
+
         <TextView
             android:id="@+id/nameUser"
             android:layout_width="match_parent"
@@ -91,20 +94,20 @@
             android:layout_marginBottom="1dp"
             android:layout_toRightOf="@id/txt"
             android:maxLines="1"
-            android:textColor="@android:color/background_dark"
+            android:textColor="@color/colorWhite"
             tools:text="Author" />
 
         <ImageButton
             android:id="@+id/share"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:background="@null"
-            android:src="@drawable/share"
-            android:scaleType="centerCrop"
             android:layout_below="@id/addressPolice"
             android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="5dp"
-            android:layout_marginRight="10dp"/>
+            android:background="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/share" />
     </RelativeLayout>
 
 </com.google.android.material.card.MaterialCardView>
