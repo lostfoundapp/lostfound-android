@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/fundo"
-    tools:context=".presentation.posts.PostActivity"
-    tools:ignore="VectorDrawableCompat">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/fundo"
+                tools:context=".presentation.posts.PostActivity"
+                tools:ignore="VectorDrawableCompat">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/bgHeader"
@@ -16,86 +15,97 @@
         android:elevation="5dp">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:gravity="center_horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:gravity="center_horizontal"
+                tools:ignore="RtlHardcoded">
 
             <TextView
-                android:id="@+id/welcome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:text="Olá, "
-                android:textColor="@color/colorWhite"
-                android:textSize="18dp"
-                android:textStyle="bold" />
+                    android:id="@+id/welcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="@string/ola"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="18dp"
+                    android:textStyle="bold" tools:ignore="SpUsage"/>
 
             <TextView
-                android:id="@+id/UserApp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/welcome"
-                android:fontFamily="sans-serif-light"
-                android:maxLines="1"
-                android:textColor="@color/colorWhite"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                tools:text="User" />
+                    android:id="@+id/UserApp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/welcome"
+                    android:fontFamily="sans-serif-light"
+                    android:maxLines="1"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    tools:text="User"
+                    tools:ignore="RtlHardcoded,SpUsage"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/UserApp"
-                android:fontFamily="sans-serif-light"
-                android:text="  =)"
-                android:textColor="@color/colorWhite"
-                android:textSize="18dp"
-                android:textStyle="bold" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/UserApp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="@string/carinha"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlHardcoded,SpUsage"/>
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <ImageView
-        android:id="@+id/circle1"
-        android:layout_width="134dp"
-        android:layout_height="134dp"
-        android:layout_below="@+id/bgHeader"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="-80dp"
-        android:layout_marginRight="-100dp"
-        android:src="@drawable/circletransparant"
-        android:visibility="gone" />
+            android:id="@+id/circle1"
+            android:layout_width="134dp"
+            android:layout_height="134dp"
+            android:layout_below="@+id/bgHeader"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="-80dp"
+            android:layout_marginRight="-100dp"
+            android:src="@drawable/circletransparant"
+            android:visibility="gone"
+            android:contentDescription="@null"
+            tools:ignore="RtlHardcoded"/>
 
     <ImageView
-        android:id="@+id/circle2"
-        android:layout_width="134dp"
-        android:layout_height="134dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="-100dp"
-        android:layout_marginBottom="50dp"
-        android:src="@drawable/circletransparant"
-        android:visibility="gone" />
+            android:id="@+id/circle2"
+            android:layout_width="134dp"
+            android:layout_height="134dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="-100dp"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/circletransparant"
+            android:visibility="gone"
+            android:contentDescription="@null"
+            tools:ignore="RtlHardcoded"/>
 
     <ImageView
-        android:id="@+id/circle3"
-        android:layout_width="182dp"
-        android:layout_height="182dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="-80dp"
-        android:layout_marginTop="250dp"
-        android:src="@drawable/circle"
-        android:visibility="gone" />
+            android:id="@+id/circle3"
+            android:layout_width="182dp"
+            android:layout_height="182dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="-80dp"
+            android:layout_marginTop="250dp"
+            android:src="@drawable/circle"
+            android:visibility="gone"
+            android:contentDescription="@null"
+            tools:ignore="RtlHardcoded"/>
 
     <ImageView
-        android:id="@+id/circle4"
-        android:layout_width="134dp"
-        android:layout_height="134dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="-50dp"
-        android:layout_toLeftOf="@+id/circle3"
-        android:src="@drawable/circletransparant"
-        android:visibility="gone" />
+            android:id="@+id/circle4"
+            android:layout_width="134dp"
+            android:layout_height="134dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="-50dp"
+            android:layout_toLeftOf="@+id/circle3"
+            android:src="@drawable/circletransparant"
+            android:visibility="gone"
+            android:contentDescription="@null"
+            tools:ignore="RtlHardcoded"/>
 
     <ViewFlipper
         android:id="@+id/viewFlipper"
@@ -119,17 +129,18 @@
             tools:listitem="@layout/item_post" />
 
         <TextView
-            android:id="@+id/error"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:padding="10dp"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:fontFamily="sans-serif-light"
-            android:textColor="@color/colorWhite"
-            tools:text="Error 401"/>
+                android:id="@+id/error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/colorWhite"
+                tools:text="Error 401"
+                tools:ignore="SpUsage"/>
 
     </ViewFlipper>
 
@@ -140,14 +151,15 @@
         android:layout_height="20dp"/>
 
     <ImageButton
-        android:id="@+id/footer"
-        android:layout_alignParentBottom="true"
-        android:layout_width="58dp"
-        android:layout_height="58dp"
-        android:paddingBottom="12dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-20dp"
-        android:background="@drawable/bt_ui"
-        android:src="@drawable/ic_exit" />
+            android:id="@+id/footer"
+            android:layout_alignParentBottom="true"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:paddingBottom="12dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-20dp"
+            android:background="@drawable/bt_ui"
+            android:src="@drawable/ic_exit"
+            android:contentDescription="@null"/>
 
 </RelativeLayout>

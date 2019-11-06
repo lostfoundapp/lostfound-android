@@ -4,4 +4,23 @@
     <string name="error_401">Não autorizado</string>
     <string name="error_400_generic">Erro não tratado</string>
     <string name="error_500_generic">Erro catastrófico</string>
+    <string name="esqueceu_senha">Esqueceu senha?</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="c_digo_de_verifica_o">Código de verificação</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="verifica_o_email">Verificação email</string>
+    <string name="carinha">&#160; =)</string>
+    <string name="ola">Olá,&#160;</string>
+    <string name="resetar_senha">Resetar senha</string>
+    <string name="seu_email">Seu email</string>
+    <string name="enviar">Enviar</string>
+    <string name="cadastro">Cadastro</string>
+    <string name="nome">Nome</string>
+    <string name="telefone">Telefone</string>
+    <string name="senha">Senha</string>
+    <string name="confirmar_senha">Confirmar senha</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="local_de_entrega">Local de entrega:&#160;</string>
+    <string name="encontrado_por">Encontrado por:&#160;</string>
 </resources>

@@ -15,27 +15,29 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/datetime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_margin="10dp"
-            android:background="#57000000"
-            android:elevation="10dp"
-            android:padding="5dp"
-            android:textColor="@color/colorWhite"
-            android:textSize="10dp"
-            android:textStyle="bold"
-            android:visibility="gone"
-            tools:text="Datetime" />
+                android:id="@+id/datetime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:background="#57000000"
+                android:elevation="10dp"
+                android:padding="5dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="Datetime"
+                tools:ignore="RtlHardcoded,SpUsage"/>
 
         <ImageView
-            android:id="@+id/imgPost"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/load" />
+                android:id="@+id/imgPost"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/load"
+                android:contentDescription="@null"/>
 
         <TextView
             android:id="@+id/description"
@@ -51,16 +53,17 @@
             tools:text="Description" />
 
         <TextView
-            android:id="@+id/txt1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/description"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="1dp"
-            android:textColor="@color/colorWhite"
-            android:text="Local de entrega: "
-            android:textSize="10dp" />
+                android:id="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/description"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="1dp"
+                android:textColor="@color/colorWhite"
+                android:text="@string/local_de_entrega"
+                android:textSize="10dp"
+                tools:ignore="RtlHardcoded,SpUsage"/>
 
         <TextView
             android:id="@+id/addressPolice"
@@ -75,39 +78,43 @@
             tools:text="AddressPolice" />
 
         <TextView
-            android:id="@+id/txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/addressPolice"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/colorWhite"
-            android:layout_marginBottom="1dp"
-            android:text="Encontrado por: " />
+                android:id="@+id/txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addressPolice"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/colorWhite"
+                android:layout_marginBottom="1dp"
+                android:text="@string/encontrado_por"
+                tools:ignore="RtlHardcoded"/>
 
         <TextView
-            android:id="@+id/nameUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/addressPolice"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="1dp"
-            android:layout_toRightOf="@id/txt"
-            android:maxLines="1"
-            android:textColor="@color/colorWhite"
-            tools:text="Author" />
+                android:id="@+id/nameUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addressPolice"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="1dp"
+                android:layout_toRightOf="@id/txt"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                tools:text="Author"
+                tools:ignore="RtlHardcoded"/>
 
         <ImageButton
-            android:id="@+id/share"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_below="@id/addressPolice"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="5dp"
-            android:background="@null"
-            android:scaleType="centerCrop"
-            android:src="@drawable/share" />
+                android:id="@+id/share"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_below="@id/addressPolice"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@null"
+                android:scaleType="centerCrop"
+                android:src="@drawable/share"
+                android:contentDescription="@null"
+                tools:ignore="RtlHardcoded"/>
     </RelativeLayout>
 
 </com.google.android.material.card.MaterialCardView>

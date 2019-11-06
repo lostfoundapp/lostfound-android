@@ -15,5 +15,5 @@ object ApiService {
             .build()
     }
 
-    val service = initRetrofit().create(LastServices::class.java)
+    val service = initRetrofit().create(LastServices::class.java)!!
 }
