@@ -8,6 +8,8 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
+import com.lostfoundapp.data.response.responseUser.DefaultResponse
+import com.lostfoundapp.presentation.user.LoginActivity
 import kotlinx.android.synthetic.main.activity_confirm_email.*
 import retrofit2.Call
 import retrofit2.Callback

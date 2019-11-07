@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.lostfoundapp.LoginActivity
+import com.lostfoundapp.presentation.user.LoginActivity
 import com.lostfoundapp.R
 import com.lostfoundapp.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_post.*

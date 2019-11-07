@@ -35,11 +35,11 @@
                 android:theme="@style/AppTheme.FullScreen">
         </activity>
         <activity
-                android:name=".SignUpActivity"
+                android:name=".presentation.user.SignUpActivity"
                 android:theme="@style/AppTheme.FullScreen">
         </activity>
         <activity
-                android:name=".LoginActivity"
+                android:name=".presentation.user.LoginActivity"
                 android:theme="@style/AppTheme.FullScreen">
         </activity>
         <activity

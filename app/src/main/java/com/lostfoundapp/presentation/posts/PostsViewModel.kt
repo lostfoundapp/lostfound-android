@@ -3,7 +3,7 @@ package com.lostfoundapp.presentation.posts
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.lostfoundapp.R
-import com.lostfoundapp.data.ApiService
+import com.lostfoundapp.data.network.ApiService
 import com.lostfoundapp.data.model.Post
 import com.lostfoundapp.data.response.responsePost.PostBodyResponse
 import retrofit2.Call

@@ -1,19 +1,19 @@
-package com.lostfoundapp
+package com.lostfoundapp.presentation.user
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import com.lostfoundapp.MainActivity
+import com.lostfoundapp.R
+import com.lostfoundapp.ResetPasswordActivity
 import com.lostfoundapp.presentation.posts.PostActivity
 import com.lostfoundapp.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_login.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class LoginActivity : AppCompatActivity() {
@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
-        animation = AnimationUtils.loadAnimation(this,R.anim.uptodowndiagonal)
+        animation = AnimationUtils.loadAnimation(this, R.anim.uptodowndiagonal)
         rlayout.setAnimation(animation)
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         cv.setBackgroundResource(R.drawable.card_background)
@@ -50,33 +50,16 @@ class LoginActivity : AppCompatActivity() {
                 edtPasswordLogin.requestFocus()
                 return@setOnClickListener
             }
+            val viewModel: UserViewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
+            viewModel.userLiveData.observe(this, Observer {
+                    val intent = Intent(this@LoginActivity, PostActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
+            })
 
-            RetrofitClient.instance.userLogin(email, password)
-                .enqueue(object : Callback<LoginResponse>{
-                    override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+            viewModel.login(email, password, this)
 
-                        Log.d("erros",  t.message)
-
-                    }
-
-                    override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                        if (!response.body()?.message.equals("Logado")){
-                            Log.d("erros", "Erro ao fazer login")
-
-                        }else{
-
-                            Log.d("erros", response.body()?.users.toString())
-                            SharedPrefManager.getInstance(applicationContext).saveUser(response.body()?.users!!)
-
-                            val intent = Intent(this@LoginActivity, PostActivity::class.java)
-                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                            startActivity(intent)
-                            finish()
-                        }
-
-                    }
-
-                })
         }
 
     }

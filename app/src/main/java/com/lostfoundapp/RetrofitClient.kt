@@ -1,5 +1,6 @@
 package com.lostfoundapp
 
+import com.lostfoundapp.data.network.ApiUser
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -21,13 +22,13 @@ object RetrofitClient{
             chain.proceed(request)
         }.build()
 
-    val instance: Api by lazy {
+    val instance: ApiUser by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
 
-        retrofit.create(Api::class.java)
+        retrofit.create(ApiUser::class.java)
     }
 }

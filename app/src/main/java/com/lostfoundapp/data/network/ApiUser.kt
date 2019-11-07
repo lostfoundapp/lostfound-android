@@ -1,10 +1,11 @@
-package com.lostfoundapp
+package com.lostfoundapp.data.network
 
-import com.lostfoundapp.data.response.responsePost.PostBodyResponse
+import com.lostfoundapp.data.response.responseUser.DefaultResponse
+import com.lostfoundapp.data.response.responseUser.LoginResponse
 import retrofit2.Call
 import retrofit2.http.*
 
-interface Api {
+interface ApiUser {
     @FormUrlEncoded
     @POST("verificationEmail")
     fun ConfirmEmail(

@@ -1,4 +1,4 @@
-package com.lostfoundapp
+package com.lostfoundapp.presentation.user
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,12 +6,13 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import com.lostfoundapp.ConfirmEmailActivity
+import com.lostfoundapp.MainActivity
+import com.lostfoundapp.R
 import com.lostfoundapp.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_sign_up.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -23,7 +24,7 @@ class SignUpActivity : AppCompatActivity() {
         supportActionBar!!.setTitle("")
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
-        animation = AnimationUtils.loadAnimation(this,R.anim.uptodowndiagonal)
+        animation = AnimationUtils.loadAnimation(this, R.anim.uptodowndiagonal)
         rlayout.setAnimation(animation)
         cv.setBackgroundResource(R.drawable.card_background)
         btnSignup.setOnClickListener {
@@ -64,26 +65,19 @@ class SignUpActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            RetrofitClient.instance.ConfirmEmail(email)
-                .enqueue(object: Callback<DefaultResponse>{
-                    override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
-                        Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
-                    }
+            val viewModel: SignUpViewModel = ViewModelProviders.of(this).get(SignUpViewModel::class.java)
+            viewModel.signUpLiveData.observe(this, Observer {
+                val intent = Intent(this@SignUpActivity, ConfirmEmailActivity::class.java)
+                intent.putExtra("email", email)
+                intent.putExtra("password", password)
+                intent.putExtra("confirmPassword", confirmPassword)
+                intent.putExtra("name", name)
+                intent.putExtra("phone", phone)
+                startActivity(intent)
+                finish()
+            })
 
-                    override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
-                        Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
-                        val intent = Intent(this@SignUpActivity, ConfirmEmailActivity::class.java)
-                        intent.putExtra("email", email)
-                        intent.putExtra("password", password)
-                        intent.putExtra("confirmPassword", confirmPassword)
-                        intent.putExtra("name", name)
-                        intent.putExtra("phone", phone)
-                        startActivity(intent)
-                        finish()
-                    }
-
-                })
-
+            viewModel.signUp(email, this)
         }
 
     }

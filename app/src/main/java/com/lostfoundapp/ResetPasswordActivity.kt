@@ -1,12 +1,12 @@
 package com.lostfoundapp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
+import com.lostfoundapp.data.response.responseUser.DefaultResponse
 import kotlinx.android.synthetic.main.activity_reset_password.*
 import retrofit2.Call
 import retrofit2.Callback

@@ -2,7 +2,7 @@ package com.lostfoundapp.storage
 
 import android.annotation.SuppressLint
 import android.content.Context
-import com.lostfoundapp.User
+import com.lostfoundapp.data.model.user.User
 
 
 class SharedPrefManager private constructor(private val mCtx: Context) {
