@@ -8,7 +8,6 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.lostfoundapp.ConfirmEmailActivity
 import com.lostfoundapp.MainActivity
 import com.lostfoundapp.R
 import com.lostfoundapp.storage.SharedPrefManager

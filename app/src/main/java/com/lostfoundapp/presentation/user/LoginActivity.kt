@@ -8,9 +8,9 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.lostfoundapp.Main2Activity
 import com.lostfoundapp.MainActivity
 import com.lostfoundapp.R
-import com.lostfoundapp.ResetPasswordActivity
 import com.lostfoundapp.presentation.posts.PostActivity
 import com.lostfoundapp.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_login.*
@@ -52,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
             }
             val viewModel: UserViewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
             viewModel.userLiveData.observe(this, Observer {
-                    val intent = Intent(this@LoginActivity, PostActivity::class.java)
+                    val intent = Intent(this@LoginActivity, Main2Activity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                     finish()
@@ -68,7 +68,7 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
 
         if (SharedPrefManager.getInstance(this).isLoggedIn){
-            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            val intent = Intent(this@LoginActivity, Main2Activity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()

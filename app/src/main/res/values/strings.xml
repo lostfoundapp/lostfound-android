@@ -23,4 +23,8 @@
     <string name="cadastrar">Cadastrar</string>
     <string name="local_de_entrega">Local de entrega:&#160;</string>
     <string name="encontrado_por">Encontrado por:&#160;</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="tab_text_1">Home</string>
+    <string name="tab_text_2">Notificações</string>
+    <string name="tab_text_3">Configurações</string>
 </resources>
